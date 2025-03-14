@@ -1,5 +1,7 @@
 package Application.Hospital.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,5 +20,6 @@ public class Patient {
     private LocalDate birthDate;
     private boolean sick;
     @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Collection<Appointment> appointmentCollection;
 }

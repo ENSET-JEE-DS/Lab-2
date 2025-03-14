@@ -1,6 +1,6 @@
 package Application.Hospital.entities;
 
-public enum StatusRendezVous {
+public enum AppointmentStatus {
     CANCELLED,
     PENDING,
     DONE

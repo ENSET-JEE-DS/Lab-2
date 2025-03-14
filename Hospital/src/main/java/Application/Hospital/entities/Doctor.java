@@ -1,5 +1,7 @@
 package Application.Hospital.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,5 +21,7 @@ public class Doctor {
     private String email;
     private String specialty;
     @OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY)
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonManagedReference
     private Collection<Appointment> appointmentCollection;
 }

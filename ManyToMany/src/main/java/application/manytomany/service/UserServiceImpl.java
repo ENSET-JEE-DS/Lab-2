@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -27,6 +28,16 @@ public class UserServiceImpl implements UserService {
     public Role addNewRole(Role role) {
         return roleRepository.save(role);
 
+    }
+
+    @Override
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public List<Role> getRoles() {
+        return roleRepository.findAll();
     }
 
     @Override

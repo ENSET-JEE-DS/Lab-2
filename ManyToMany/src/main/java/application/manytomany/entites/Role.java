@@ -22,7 +22,7 @@ public class Role {
     @Column(unique = true)
     private  String roleName;
     @ManyToMany(fetch = FetchType.EAGER)
-//    @JsonBackReference
+    @JsonBackReference
     @ToString.Exclude
     private List<User> users = new ArrayList<>();
 }

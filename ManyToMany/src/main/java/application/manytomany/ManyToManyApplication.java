@@ -38,7 +38,6 @@ public class ManyToManyApplication {
 
             userService.addRoleToUser("Evil", "Griffith");
             userService.addRoleToUser("Warrior", "Griffith");
-            userService.addRoleToUser("Brave", "Guts");
             userService.addRoleToUser("Warrior", "Guts");
             userService.addRoleToUser("Brave", "Casca");
 

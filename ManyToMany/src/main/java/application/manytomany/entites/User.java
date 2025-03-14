@@ -23,7 +23,7 @@ public class User {
     private String userName;
     private String password;
     @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
-//    @JsonManagedReference
+    @JsonManagedReference
     @ToString.Exclude
     private List<Role> role = new ArrayList<>();
 }

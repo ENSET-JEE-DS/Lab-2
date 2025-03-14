@@ -177,3 +177,25 @@ mysql> SELECT * FROM patient;
 +----+------------+----------------+----------+-------+
 3 rows in set (0.00 sec)
 ````
+
+## Hospital Application
+
+### Class Diagram
+````mermaid
+classDiagram
+    class Patient {
+    }
+
+    class Doctor {
+    }
+
+    class Appointment {
+    }
+
+    class Consultation {
+    }
+
+    Patient "1"--"*" Appointment
+    Doctor "1"--"*" Appointment
+    Consultation "1"--"1" Appointment
+````

@@ -199,3 +199,51 @@ classDiagram
     Doctor "1"--"*" Appointment
     Consultation "1"--"1" Appointment
 ````
+
+## ManyToMany Application
+
+### Class diagram
+
+````plantuml
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Role {
+  + Role(): 
+  + Role(Long, String, List<User>): 
+  - id: Long
+  - users: List<User>
+  - roleName: String
+}
+interface RoleRepository << interface >>
+class User {
+  + User(String, String, String, List<Role>): 
+  + User(): 
+  - userName: String
+  - userId: String
+  - password: String
+  - role: List<Role>
+}
+class UserController {
+  + UserController(UserService): 
+  - userService: UserService
+}
+interface UserRepository << interface >>
+interface UserService << interface >>
+class UserServiceImpl {
+  + UserServiceImpl(UserRepository, RoleRepository): 
+  - userRepository: UserRepository
+  - roleRepository: RoleRepository
+}
+
+Role            "1" *-[#595959,plain]-> "users\n*" User            
+User            "1" *-[#595959,plain]-> "role\n*" Role            
+UserController  "1" *-[#595959,plain]-> "userService\n1" UserService     
+UserServiceImpl "1" *-[#595959,plain]-> "roleRepository\n1" RoleRepository  
+UserServiceImpl "1" *-[#595959,plain]-> "userRepository\n1" UserRepository  
+UserServiceImpl  -[#008200,dashed]-^  UserService     
+@enduml
+````

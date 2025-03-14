@@ -44,7 +44,7 @@ public class ManyToManyApplication {
             User newUser = userService.findUserByUserName("Guts");
             List<Role> roleList = newUser.getRole();
             roleList.forEach(role -> {
-                System.out.println("\t"+role);
+                System.out.println("\t" + role);
             });
 
 

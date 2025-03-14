@@ -204,46 +204,52 @@ classDiagram
 
 ### Class diagram
 
-````plantuml
-@startuml
-
-!theme plain
-top to bottom direction
-skinparam linetype ortho
-
+````mermaid
+classDiagram
+direction BT
 class Role {
-  + Role(): 
-  + Role(Long, String, List<User>): 
-  - id: Long
-  - users: List<User>
-  - roleName: String
+  + Role() 
+  + Role(Long, String, List~User~) 
+  - Long id
+  - List~User~ users
+  - String roleName
 }
-interface RoleRepository << interface >>
+class RoleRepository {
+<<Interface>>
+
+}
 class User {
-  + User(String, String, String, List<Role>): 
-  + User(): 
-  - userName: String
-  - userId: String
-  - password: String
-  - role: List<Role>
+  + User(String, String, String, List~Role~) 
+  + User() 
+  - String userName
+  - String userId
+  - String password
+  - List~Role~ role
 }
 class UserController {
-  + UserController(UserService): 
-  - userService: UserService
+  + UserController(UserService) 
+  - UserService userService
 }
-interface UserRepository << interface >>
-interface UserService << interface >>
+class UserRepository {
+<<Interface>>
+
+}
+class UserService {
+<<Interface>>
+
+}
 class UserServiceImpl {
-  + UserServiceImpl(UserRepository, RoleRepository): 
-  - userRepository: UserRepository
-  - roleRepository: RoleRepository
+  + UserServiceImpl(UserRepository, RoleRepository) 
+  - UserRepository userRepository
+  - RoleRepository roleRepository
 }
 
-Role            "1" *-[#595959,plain]-> "users\n*" User            
-User            "1" *-[#595959,plain]-> "role\n*" Role            
-UserController  "1" *-[#595959,plain]-> "userService\n1" UserService     
-UserServiceImpl "1" *-[#595959,plain]-> "roleRepository\n1" RoleRepository  
-UserServiceImpl "1" *-[#595959,plain]-> "userRepository\n1" UserRepository  
-UserServiceImpl  -[#008200,dashed]-^  UserService     
-@enduml
+Role "1" *--> "users *" User 
+User "1" *--> "role *" Role 
+UserController "1" *--> "userService 1" UserService 
+UserServiceImpl "1" *--> "roleRepository 1" RoleRepository 
+UserServiceImpl "1" *--> "userRepository 1" UserRepository 
+UserServiceImpl  ..>  UserService 
+
+
 ````

@@ -51,10 +51,8 @@ public class UserGroupApplication {
             );
 
             users.getFirst().setGroup(groups.getFirst());
+//            users.get
             userRepo.save(users.getFirst());
-
-
-//            System.out.println(groupRepo.findAll().getFirst().getUsers());
 
         };
     }

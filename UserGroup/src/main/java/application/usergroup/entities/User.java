@@ -17,8 +17,7 @@ public class User {
 
     @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "group_id")
-    @JsonBackReference
-
+//    @JsonBackReference
     private Group group;
 //    private List<Group> groups;
 }

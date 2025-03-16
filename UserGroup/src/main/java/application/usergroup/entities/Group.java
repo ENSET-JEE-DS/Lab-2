@@ -19,7 +19,7 @@ public class Group {
     private String id;
     private String name;
     @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
-    @JsonManagedReference
-    @ToString.Exclude
+//    @JsonManagedReference
+//    @ToString.Exclude
     private List<User> users = new ArrayList<>();
 }

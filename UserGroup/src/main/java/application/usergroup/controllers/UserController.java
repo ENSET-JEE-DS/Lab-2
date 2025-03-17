@@ -16,10 +16,9 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/user")
-@Data @AllArgsConstructor
+ @AllArgsConstructor
 public class UserController {
 
-//    @Autowired
     private UserRepo userRepo;
 
     @GetMapping
